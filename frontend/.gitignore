@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+package-lock.json
 /dist
 
 /tests/e2e/videos/
@@ -22,3 +23,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+/live/

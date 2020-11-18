@@ -1,0 +1,11 @@
+query Pokemons($offset: Int, $search: String, $isFavorite: Boolean, $type: String){
+  pokemons(query: { limit: 10, search: $search, offset: $offset, filter: { isFavorite: $isFavorite, type: $type } }) {
+    edges {
+      id
+      name
+      types
+      image
+      isFavorite
+    }
+  }
+}

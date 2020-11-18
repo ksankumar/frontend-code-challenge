@@ -1,0 +1,8 @@
+query PokemonEvolutionDetails($id: ID!) {
+  pokemonById(id: $id) {
+    id
+    name
+    image
+    isFavorite
+  }
+}
