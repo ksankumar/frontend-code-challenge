@@ -1,18 +1,16 @@
-import "core-js";
-import "regenerator-runtime/runtime";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import { createProvider } from "./vue-apollo";
 import vuetify from "./plugins/vuetify";
 import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "@mdi/font/css/materialdesignicons.css";
+import { createProvider } from "./vue-apollo";
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
-  apolloProvider: createProvider(),
   vuetify,
+  apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount("#app");
