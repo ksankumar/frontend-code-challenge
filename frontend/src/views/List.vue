@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-card flat height="100%" width="100%">
     <div class="overflow-hidden">
       <v-row no-gutters>
         <v-col cols="6" md="6" sm="6">
@@ -31,7 +31,7 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-row align="center" class="mt-5 mb-2" justify="space-around" no-gutters>
+      <v-row align="center" class="mt-5" justify="space-around" no-gutters>
         <v-col class="pr-3" cols="6" md="7" sm="6">
           <v-text-field
             v-model.trim="searchText"
@@ -74,9 +74,13 @@
         </v-col>
       </v-row>
     </div>
-    <v-card class="content-scroll" flat @scroll="handleScroll">
-      <v-container v-if="pokemons && pokemons.edges.length">
-        <v-slide-x-transition :duration="250" mode="out-in">
+    <v-card class="content-scroll" flat @scroll="onScroll">
+      <template v-if="pokemons">
+        <v-slide-x-transition
+          v-if="pokemons.edges.length"
+          :duration="250"
+          mode="out-in"
+        >
           <v-list v-if="listView" two-line>
             <v-list-item
               v-for="item in pokemons.edges"
@@ -164,24 +168,35 @@
             </v-col>
           </v-row>
         </v-slide-x-transition>
-      </v-container>
+        <v-fade-transition v-else>
+          <NoData title="not found" />
+        </v-fade-transition>
+      </template>
+      <v-fade-transition v-if="!pokemons && showError">
+        <NoData message="We're down for maintenance. Check back shortly." />
+      </v-fade-transition>
     </v-card>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
 import Pokemons from "@/graphql/Pokemons.gql";
 import FavoritePokemon from "@/graphql/FavoritePokemon.gql";
 import UnFavoritePokemon from "@/graphql/UnFavoritePokemon.gql";
+import NoData from "@/components/NoData";
 
 export default {
   name: "pokemons-list",
+  components: {
+    NoData
+  },
   data: () => ({
     offset: 0,
     searchText: "",
     isFavorite: false,
     pokemonType: "",
-    listView: false
+    listView: false,
+    showError: false
   }),
   apollo: {
     pokemons: {
@@ -194,13 +209,19 @@ export default {
           type: this.pokemonType
         };
       },
+      error() {
+        this.onError();
+      },
       fetchPolicy: "network-only",
       debounce: 300,
       loadingKey: "loading"
     }
   },
   methods: {
-    handleScroll({ target: { scrollTop, clientHeight, scrollHeight } }) {
+    onError() {
+      this.showError = true;
+    },
+    onScroll({ target: { scrollTop, clientHeight, scrollHeight } }) {
       if (scrollTop + clientHeight >= scrollHeight) this.loadMorePokemons();
     },
     loadMorePokemons() {

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container fluid>
+    <v-container fluid fill-height>
       <transition name="fade">
         <router-view></router-view>
       </transition>

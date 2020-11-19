@@ -4,7 +4,7 @@
       :query="require('../graphql/PokemonDetails.gql')"
       :variables="{ id: $route.params.id }"
     >
-      <template v-slot="{ result: { data }, isLoading }">
+      <template v-slot="{ result: { data, error }, isLoading }">
         <!-- Loading -->
         <v-skeleton-loader
           v-if="isLoading"
@@ -137,7 +137,12 @@
           </v-fade-transition>
         </div>
         <!-- No result -->
-        <div v-else class="no-result apollo">No result :(</div>
+        <v-fade-transition v-else-if="data && !data.pokemonById">
+          <NoData />
+        </v-fade-transition>
+        <v-fade-transition v-else>
+          <NoData message="We're down for maintenance. Check back shortly." />
+        </v-fade-transition>
       </template>
     </ApolloQuery>
   </v-container>
@@ -148,12 +153,14 @@ import FavoritePokemon from "@/graphql/FavoritePokemon.gql";
 import UnFavoritePokemon from "@/graphql/UnFavoritePokemon.gql";
 import EvolutionCard from "@/components/EvolutionCard";
 import AudioPlayer from "@/components/AudioPlayer";
+import NoData from "@/components/NoData";
 
 export default {
   name: "Details",
   components: {
     EvolutionCard,
-    AudioPlayer
+    AudioPlayer,
+    NoData
   },
   methods: {
     async makeFavorite(item) {
