@@ -76,10 +76,14 @@ exports[`Pokemon component displayed pokemon correctly with query data 1`] = `
     <v-fade-transition-stub mode="out-in" origin="top center 0">
       <v-row-stub tag="div">
         <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
-          <evolutioncard-stub id="002"></evolutioncard-stub>
+          <apolloquery-stub query="[object Object]" variables="[object Object]" update="function _default(data) {
+          return data;
+        }" debounce="0" throttle="0" tag="div" prefetch="true" options="[object Object]"></apolloquery-stub>
         </v-col-stub>
         <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
-          <evolutioncard-stub id="003"></evolutioncard-stub>
+          <apolloquery-stub query="[object Object]" variables="[object Object]" update="function _default(data) {
+          return data;
+        }" debounce="0" throttle="0" tag="div" prefetch="true" options="[object Object]"></apolloquery-stub>
         </v-col-stub>
       </v-row-stub>
     </v-fade-transition-stub>

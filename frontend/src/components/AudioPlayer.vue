@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "AudioPlayer",
+  name: "audio-player",
   props: {
     audioSrc: {
       type: String

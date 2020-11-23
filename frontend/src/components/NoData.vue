@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  name: "NoData",
+  name: "no-data",
   props: {
     message: {
       type: String,

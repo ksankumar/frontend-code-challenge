@@ -129,7 +129,18 @@
             md="3"
             sm="4"
           >
-            <EvolutionCard :id="item.id" />
+            <ApolloQuery
+              :query="require('../graphql/pokemonEvolution.query.gql')"
+              :variables="{ id: item.id }"
+            >
+              <template v-slot="{ result: { data }, isLoading }">
+                <v-skeleton-loader
+                  v-if="isLoading"
+                  type="image, table-tfoot"
+                ></v-skeleton-loader>
+                <PokemonCard v-else :pokemon="data.pokemonById" />
+              </template>
+            </ApolloQuery>
           </v-col>
         </v-row>
       </v-fade-transition>
@@ -151,15 +162,15 @@
 import POKEMON_DETAILS_QUERY from "@/graphql/pokemonDetails.query.gql";
 import FavoritePokemon from "@/graphql/favoritePokemon.mutation.gql";
 import UnFavoritePokemon from "@/graphql/unFavoritePokemon.mutation.gql";
-import EvolutionCard from "@/components/EvolutionCard";
 import AudioPlayer from "@/components/AudioPlayer";
 import NoData from "@/components/NoData";
+import PokemonCard from "@/components/PokemonCard";
 
 export default {
   name: "pokeman-details",
   components: {
-    EvolutionCard,
     AudioPlayer,
+    PokemonCard,
     NoData
   },
   apollo: {

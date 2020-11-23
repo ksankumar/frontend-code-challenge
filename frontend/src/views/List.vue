@@ -37,8 +37,8 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-row align="center" class="mt-5" justify="space-around" no-gutters>
-        <v-col class="pr-3" cols="6" md="7" sm="6">
+      <v-row align="center" justify="space-around">
+        <v-col cols="12" md="7" sm="6" class="pr-3">
           <v-text-field
             v-model.trim="pokemonName"
             clearable
@@ -48,7 +48,7 @@
             @input="onSearchPokemon"
           ></v-text-field>
         </v-col>
-        <v-col class="test-section" cols="5" md="4" sm="4">
+        <v-col cols="8" md="4" sm="4">
           <!--          <ApolloQuery-->
           <!--            v-slot="{ result: { data }, isLoading }"-->
           <!--            :query="require('../graphql/pokemonTypes.query.gql')"-->
@@ -69,7 +69,7 @@
           ></v-select>
           <!--          </ApolloQuery>-->
         </v-col>
-        <v-col cols="1" md="1" sm="2">
+        <v-col cols="4" md="1" sm="2">
           <v-row align="center" justify="space-around" no-gutters>
             <v-btn color="primary" icon large @click.stop="listView = true">
               <v-icon large>mdi-view-list</v-icon>
@@ -82,6 +82,7 @@
         </v-col>
       </v-row>
     </div>
+    <v-divider class="elevation-10" />
     <v-card class="content-scroll" flat @scroll="onScroll">
       <template v-if="pokemons">
         <v-slide-x-transition

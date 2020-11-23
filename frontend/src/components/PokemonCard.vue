@@ -10,7 +10,7 @@
         <div class="font-weight-normal">
           <strong>{{ pokemon.name }}</strong>
         </div>
-        <div>{{ pokemon.types.join(", ") }}</div>
+        <div v-if="pokemon.types">{{ pokemon.types.join(", ") }}</div>
       </div>
       <v-spacer></v-spacer>
       <v-btn icon @click.stop="makeFavorite(pokemon)" class="test-favorite">
@@ -27,7 +27,7 @@ import UnFavoritePokemon from "@/graphql/unFavoritePokemon.mutation.gql";
 import FavoritePokemon from "@/graphql/favoritePokemon.mutation.gql";
 
 export default {
-  name: "PokemonCard",
+  name: "pokemon-card",
   props: {
     pokemon: {
       type: Object
