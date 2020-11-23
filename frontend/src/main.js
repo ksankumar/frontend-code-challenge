@@ -18,7 +18,7 @@ apolloProvider.clients.defaultClient.cache.writeQuery({
   query: localTestQuery,
   data: {
     fetchLocalUser: {
-      __typename: "User",
+      __typename: "Pokemon",
       name: "Test"
     }
   }
