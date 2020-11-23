@@ -1,0 +1,96 @@
+{
+  "data": {
+    "pokemonById": {
+      "id": "001",
+      "name": "Bulbasaur",
+      "weight": {
+        "maximum": "7.76kg",
+        "minimum": "6.04kg",
+        "__typename": "PokemonDimension"
+      },
+      "height": {
+        "maximum": "0.79m",
+        "minimum": "0.61m",
+        "__typename": "PokemonDimension"
+      },
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "resistant": [
+        "Water",
+        "Electric",
+        "Grass",
+        "Fighting",
+        "Fairy"
+      ],
+      "attacks": {
+        "fast": [
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12,
+            "__typename": "Attack"
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7,
+            "__typename": "Attack"
+          }
+        ],
+        "special": [
+          {
+            "name": "Power Whip",
+            "type": "Grass",
+            "damage": 70,
+            "__typename": "Attack"
+          },
+          {
+            "name": "Seed Bomb",
+            "type": "Grass",
+            "damage": 40,
+            "__typename": "Attack"
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55,
+            "__typename": "Attack"
+          }
+        ],
+        "__typename": "PokemonAttack"
+      },
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Flying",
+        "Psychic"
+      ],
+      "fleeRate": 0.1,
+      "maxCP": 951,
+      "evolutions": [
+        {
+          "id": "002",
+          "name": "Ivysaur",
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "003",
+          "name": "Venusaur",
+          "__typename": "Pokemon"
+        }
+      ],
+      "evolutionRequirements": {
+        "amount": 25,
+        "name": "Bulbasaur candies",
+        "__typename": "PokemonEvolutionRequirement"
+      },
+      "maxHP": 1071,
+      "image": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+      "sound": "http://localhost:4000/sounds/1",
+      "isFavorite": true,
+      "__typename": "Pokemon-details"
+    }
+  }
+}

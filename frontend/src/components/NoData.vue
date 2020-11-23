@@ -75,10 +75,11 @@
           <polygon class="st7" points="81,53 81,51.5 66,37 65,37 65,53 " />
         </svg>
       </div>
-      <h3 class="zoomer pt-5" v-html="message"></h3>
+      <h3 class="zoomer pt-5 error-text" v-html="message"></h3>
     </v-flex>
   </v-layout>
 </template>
+
 <script>
 export default {
   name: "NoData",
@@ -158,6 +159,7 @@ export default {
   0% {
     -webkit-transform: scale(0.3);
   }
+
   100% {
     -webkit-transform: scale(1);
   }
@@ -167,6 +169,7 @@ export default {
   0% {
     transform: scale(0.3);
   }
+
   100% {
     transform: scale(1);
   }
@@ -208,5 +211,7 @@ export default {
 .st7 {
   opacity: 0.2;
   fill: #464c60;
+}
+.error-text {
 }
 </style>

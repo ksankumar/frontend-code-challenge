@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemons List view renders a list of 10 pokemons when query is resolved 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" width="100%" flat="true">
+  <div class="overflow-hidden">
+    <v-row-stub tag="div" nogutters="true">
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          All
+        </v-btn-stub>
+      </v-col-stub>
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" outlined="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          Favorites
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
+      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+        <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (a instanceof Date &amp;&amp; b instanceof Date &amp;&amp; a.getTime() !== b.getTime()) {
+    // If the values are Date, compare them as timestamps
+    return false;
+  }
+
+  if (a !== Object(a) || b !== Object(b)) {
+    // If the values aren't objects, they were already checked for equality
+    return false;
+  }
+
+  var props = Object.keys(a);
+
+  if (props.length !== Object.keys(b).length) {
+    // Different number of props, don't bother to check
+    return false;
+  }
+
+  return props.every(function (p) {
+    return deepEqual(a[p], b[p]);
+  });
+}" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub cols="1" sm="2" md="1" tag="div">
+        <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-view-list</v-icon-stub>
+          </v-btn-stub>
+          <v-divider-stub vertical="true" align="center"></v-divider-stub>
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-grid</v-icon-stub>
+          </v-btn-stub>
+        </v-row-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </div>
+  <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
+    <v-slide-x-transition-stub mode="out-in" origin="top center 0" duration="250">
+      <v-row-stub tag="div">
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+      </v-row-stub>
+    </v-slide-x-transition-stub>
+    <!---->
+  </v-card-stub>
+</v-card-stub>
+`;
+
+exports[`Pokemons List view renders a loading block when query is in progress 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" width="100%" flat="true">
+  <div class="overflow-hidden">
+    <v-row-stub tag="div" nogutters="true">
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          All
+        </v-btn-stub>
+      </v-col-stub>
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" outlined="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          Favorites
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
+      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+        <v-skeleton-loader-stub type="list-item" types="[object Object]"></v-skeleton-loader-stub>
+      </v-col-stub>
+      <v-col-stub cols="1" sm="2" md="1" tag="div">
+        <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-view-list</v-icon-stub>
+          </v-btn-stub>
+          <v-divider-stub vertical="true" align="center"></v-divider-stub>
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-grid</v-icon-stub>
+          </v-btn-stub>
+        </v-row-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </div>
+  <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
+    <div class="test-loading">
+      <v-skeleton-loader-stub type="image, list-item-avatar-two-line" types="[object Object]"></v-skeleton-loader-stub>
+    </div>
+    <!---->
+  </v-card-stub>
+</v-card-stub>
+`;
+
+exports[`Pokemons List view renders a message about no pokemons when heroes list is empty 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" width="100%" flat="true">
+  <div class="overflow-hidden">
+    <v-row-stub tag="div" nogutters="true">
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          All
+        </v-btn-stub>
+      </v-col-stub>
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" outlined="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          Favorites
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
+      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+        <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (a instanceof Date &amp;&amp; b instanceof Date &amp;&amp; a.getTime() !== b.getTime()) {
+    // If the values are Date, compare them as timestamps
+    return false;
+  }
+
+  if (a !== Object(a) || b !== Object(b)) {
+    // If the values aren't objects, they were already checked for equality
+    return false;
+  }
+
+  var props = Object.keys(a);
+
+  if (props.length !== Object.keys(b).length) {
+    // Different number of props, don't bother to check
+    return false;
+  }
+
+  return props.every(function (p) {
+    return deepEqual(a[p], b[p]);
+  });
+}" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub cols="1" sm="2" md="1" tag="div">
+        <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-view-list</v-icon-stub>
+          </v-btn-stub>
+          <v-divider-stub vertical="true" align="center"></v-divider-stub>
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-grid</v-icon-stub>
+          </v-btn-stub>
+        </v-row-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </div>
+  <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
+    <v-fade-transition-stub origin="top center 0">
+      <nodata-stub message="We Couldn't find the Pokemon that you're looking for"></nodata-stub>
+    </v-fade-transition-stub>
+    <!---->
+  </v-card-stub>
+</v-card-stub>
+`;
+
+exports[`Pokemons List view renders error if query fails 1`] = `
+<v-card-stub loaderheight="4" tag="div" height="100%" width="100%" flat="true">
+  <div class="overflow-hidden">
+    <v-row-stub tag="div" nogutters="true">
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          All
+        </v-btn-stub>
+      </v-col-stub>
+      <v-col-stub cols="6" sm="6" md="6" tag="div">
+        <v-btn-stub color="primary" elevation="0" tile="true" outlined="true" tag="button" activeclass="" large="true" block="true" type="button" class="text-capitalize">
+          Favorites
+        </v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
+      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+        <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (a instanceof Date &amp;&amp; b instanceof Date &amp;&amp; a.getTime() !== b.getTime()) {
+    // If the values are Date, compare them as timestamps
+    return false;
+  }
+
+  if (a !== Object(a) || b !== Object(b)) {
+    // If the values aren't objects, they were already checked for equality
+    return false;
+  }
+
+  var props = Object.keys(a);
+
+  if (props.length !== Object.keys(b).length) {
+    // Different number of props, don't bother to check
+    return false;
+  }
+
+  return props.every(function (p) {
+    return deepEqual(a[p], b[p]);
+  });
+}" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub cols="1" sm="2" md="1" tag="div">
+        <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-view-list</v-icon-stub>
+          </v-btn-stub>
+          <v-divider-stub vertical="true" align="center"></v-divider-stub>
+          <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
+            <v-icon-stub large="">mdi-grid</v-icon-stub>
+          </v-btn-stub>
+        </v-row-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </div>
+  <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
+    <!---->
+    <v-fade-transition-stub origin="top center 0">
+      <nodata-stub message="We're down for maintenance. Check back shortly."></nodata-stub>
+    </v-fade-transition-stub>
+  </v-card-stub>
+</v-card-stub>
+`;

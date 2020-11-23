@@ -13,7 +13,8 @@ export default {
   name: "App"
 };
 </script>
-<style scoped lang="scss">
+
+<style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition-property: opacity;

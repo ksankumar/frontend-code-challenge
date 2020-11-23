@@ -1,7 +1,7 @@
 <template>
   <ApolloQuery
     v-if="id"
-    :query="require('../graphql/PokemonEvolution.gql')"
+    :query="require('../graphql/pokemonEvolution.query.gql')"
     :variables="{ id: id }"
   >
     <template v-slot="{ result: { data }, isLoading }">
@@ -53,8 +53,8 @@
 </template>
 
 <script>
-import UnFavoritePokemon from "@/graphql/UnFavoritePokemon.gql";
-import FavoritePokemon from "@/graphql/FavoritePokemon.gql";
+import UnFavoritePokemon from "@/graphql/unFavoritePokemon.mutation.gql";
+import FavoritePokemon from "@/graphql/favoritePokemon.mutation.gql";
 
 export default {
   name: "EvolutionCard",
@@ -65,9 +65,15 @@ export default {
   },
   methods: {
     goPokemonDetails(pokemonId) {
-      this.$router.push({ name: "PokemonDetails", params: { id: pokemonId } });
+      this.$router.push({
+        name: "PokemonDetails",
+        params: {
+          id: pokemonId
+        }
+      });
     },
     async makeFavorite(item) {
+      console.log("pokemonId **********", item);
       await this.$apollo.mutate({
         mutation: item.isFavorite ? UnFavoritePokemon : FavoritePokemon,
         variables: {

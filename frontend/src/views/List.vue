@@ -11,7 +11,10 @@
             elevation="0"
             large
             tile
-            @click.stop="isFavorite = false"
+            @click.stop="
+              isFavorite = false;
+              reFetchPokemons();
+            "
           >
             All
           </v-btn>
@@ -25,7 +28,10 @@
             elevation="0"
             large
             tile
-            @click.stop="isFavorite = true"
+            @click.stop="
+              isFavorite = true;
+              reFetchPokemons();
+            "
           >
             Favorites
           </v-btn>
@@ -34,32 +40,34 @@
       <v-row align="center" class="mt-5" justify="space-around" no-gutters>
         <v-col class="pr-3" cols="6" md="7" sm="6">
           <v-text-field
-            v-model.trim="searchText"
+            v-model.trim="pokemonName"
             clearable
             hide-details
             label="Search"
             outlined
+            @input="onSearchPokemon"
           ></v-text-field>
         </v-col>
-        <v-col cols="5" md="4" sm="4">
-          <ApolloQuery
-            v-slot="{ result: { data }, isLoading }"
-            :query="require('../graphql/PokemonTypes.gql')"
-          >
-            <v-skeleton-loader
-              v-if="isLoading"
-              type="list-item"
-            ></v-skeleton-loader>
-            <v-select
-              v-else
-              v-model="pokemonType"
-              :items="data.pokemonTypes"
-              clearable
-              hide-details
-              label="Type"
-              outlined
-            ></v-select>
-          </ApolloQuery>
+        <v-col class="test-section" cols="5" md="4" sm="4">
+          <!--          <ApolloQuery-->
+          <!--            v-slot="{ result: { data }, isLoading }"-->
+          <!--            :query="require('../graphql/pokemonTypes.query.gql')"-->
+          <!--          >-->
+          <v-skeleton-loader
+            v-if="$apollo.queries.pokemons.loading"
+            type="list-item"
+          ></v-skeleton-loader>
+          <v-select
+            v-else
+            label="Type"
+            class="selectable"
+            :items="pokemonTypes"
+            v-model="pokemonType"
+            clearable
+            hide-details
+            outlined
+          ></v-select>
+          <!--          </ApolloQuery>-->
         </v-col>
         <v-col cols="1" md="1" sm="2">
           <v-row align="center" justify="space-around" no-gutters>
@@ -130,48 +138,25 @@
               md="3"
               sm="4"
             >
-              <v-card outlined @click.stop="goPokemonDetails(item.id)">
-                <v-img
-                  :src="item.image"
-                  class="text-right pa-2"
-                  contain
-                  height="300"
-                >
-                  <template v-slot:placeholder>
-                    <v-row
-                      align="center"
-                      class="fill-height ma-0"
-                      justify="center"
-                    >
-                      <v-progress-circular
-                        color="primary"
-                        indeterminate
-                      ></v-progress-circular>
-                    </v-row>
-                  </template>
-                </v-img>
-                <v-card-actions class="grey lighten-3">
-                  <div>
-                    <div class="font-weight-normal">
-                      <strong>{{ item.name }}</strong>
-                    </div>
-                    <div>{{ item.types.join(", ") }}</div>
-                  </div>
-                  <v-spacer></v-spacer>
-                  <v-btn icon @click.stop="makeFavorite(item)">
-                    <v-icon color="red" size="30"
-                      >{{ item.isFavorite ? "mdi-heart" : "mdi-heart-outline" }}
-                    </v-icon>
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
+              <PokemonCard :pokemon="item" />
             </v-col>
           </v-row>
         </v-slide-x-transition>
         <v-fade-transition v-else>
-          <NoData title="not found" />
+          <NoData
+            :message="
+              isFavorite
+                ? 'No favourite pokemon found to show'
+                : 'We Couldn\'t find the Pokemon that you\'re looking for'
+            "
+          />
         </v-fade-transition>
       </template>
+      <div v-else-if="$apollo.queries.pokemons.loading" class="test-loading">
+        <v-skeleton-loader
+          type="image, list-item-avatar-two-line"
+        ></v-skeleton-loader>
+      </div>
       <v-fade-transition v-if="!pokemons && showError">
         <NoData message="We're down for maintenance. Check back shortly." />
       </v-fade-transition>
@@ -180,18 +165,21 @@
 </template>
 
 <script>
-import Pokemons from "@/graphql/Pokemons.gql";
-import FavoritePokemon from "@/graphql/FavoritePokemon.gql";
-import UnFavoritePokemon from "@/graphql/UnFavoritePokemon.gql";
+import POKEMONS_QUERY from "@/graphql/pokemons.query.gql";
+import POKEMONS_TYPES_QUERY from "@/graphql/pokemonTypes.query.gql";
+import localTestQuery from "@/graphql/localTest.query.gql";
+import PokemonCard from "@/components/PokemonCard";
 import NoData from "@/components/NoData";
 
 export default {
   name: "pokemons-list",
   components: {
+    PokemonCard,
     NoData
   },
   data: () => ({
     offset: 0,
+    pokemonName: "",
     searchText: "",
     isFavorite: false,
     pokemonType: "",
@@ -199,28 +187,29 @@ export default {
     showError: false
   }),
   apollo: {
+    pokemonTypes: {
+      query: POKEMONS_TYPES_QUERY
+    },
     pokemons: {
-      query: Pokemons,
-      variables() {
-        return {
-          offset: 0,
-          search: this.searchText,
-          isFavorite: this.isFavorite,
-          type: this.pokemonType
-        };
+      query: POKEMONS_QUERY,
+      variables: {
+        offset: 0
       },
       error() {
-        this.onError();
+        this.showError = true;
       },
       fetchPolicy: "network-only",
       debounce: 300,
       loadingKey: "loading"
+    },
+    fetchLocalUser: {
+      query: localTestQuery,
+      result() {
+        console.log("*************Test fetched!");
+      }
     }
   },
   methods: {
-    onError() {
-      this.showError = true;
-    },
     onScroll({ target: { scrollTop, clientHeight, scrollHeight } }) {
       if (scrollTop + clientHeight >= scrollHeight) this.loadMorePokemons();
     },
@@ -242,16 +231,15 @@ export default {
         }
       });
     },
-    async makeFavorite(item) {
-      await this.$apollo.mutate({
-        mutation: item.isFavorite ? UnFavoritePokemon : FavoritePokemon,
-        variables: {
-          id: item.id
-        }
-      });
+    onSearchPokemon() {
+      this.$delay(this.reFetchPokemons);
     },
-    goPokemonDetails(pokemonId) {
-      this.$router.push({ name: "PokemonDetails", params: { id: pokemonId } });
+    reFetchPokemons() {
+      this.$apollo.queries.pokemons.refetch({
+        search: this.pokemonName,
+        isFavorite: this.isFavorite,
+        type: this.pokemonType
+      });
     }
   }
 };
@@ -291,21 +279,27 @@ export default {
   0% {
     transform: scaleY(0.1);
   }
+
   40% {
     transform: scaleY(1.02);
   }
+
   60% {
     transform: scaleY(0.98);
   }
+
   80% {
     transform: scaleY(1.01);
   }
+
   100% {
     transform: scaleY(0.98);
   }
+
   80% {
     transform: scaleY(1.01);
   }
+
   100% {
     transform: scaleY(1);
   }
@@ -315,21 +309,27 @@ export default {
   0% {
     -webkit-transform: scaleY(0.1);
   }
+
   40% {
     -webkit-transform: scaleY(1.02);
   }
+
   60% {
     -webkit-transform: scaleY(0.98);
   }
+
   80% {
     -webkit-transform: scaleY(1.01);
   }
+
   100% {
     -webkit-transform: scaleY(0.98);
   }
+
   80% {
     -webkit-transform: scaleY(1.01);
   }
+
   100% {
     -webkit-transform: scaleY(1);
   }

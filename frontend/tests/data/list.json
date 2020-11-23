@@ -1,0 +1,112 @@
+{
+  "data": {
+    "pokemons": {
+      "edges": [
+        {
+          "id": "001",
+          "name": "Bulbasaur",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "image": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "002",
+          "name": "Ivysaur",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "image": "https://img.pokemondb.net/artwork/ivysaur.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "003",
+          "name": "Venusaur",
+          "types": [
+            "Grass",
+            "Poison"
+          ],
+          "image": "https://img.pokemondb.net/artwork/venusaur.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "004",
+          "name": "Charmander",
+          "types": [
+            "Fire"
+          ],
+          "image": "https://img.pokemondb.net/artwork/charmander.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "005",
+          "name": "Charmeleon",
+          "types": [
+            "Fire"
+          ],
+          "image": "https://img.pokemondb.net/artwork/charmeleon.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "006",
+          "name": "Charizard",
+          "types": [
+            "Fire",
+            "Flying"
+          ],
+          "image": "https://img.pokemondb.net/artwork/charizard.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "007",
+          "name": "Squirtle",
+          "types": [
+            "Water"
+          ],
+          "image": "https://img.pokemondb.net/artwork/squirtle.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "008",
+          "name": "Wartortle",
+          "types": [
+            "Water"
+          ],
+          "image": "https://img.pokemondb.net/artwork/wartortle.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "009",
+          "name": "Blastoise",
+          "types": [
+            "Water"
+          ],
+          "image": "https://img.pokemondb.net/artwork/blastoise.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "010",
+          "name": "Caterpie",
+          "types": [
+            "Bug"
+          ],
+          "image": "https://img.pokemondb.net/artwork/caterpie.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        }
+      ]
+    }
+  }
+}
