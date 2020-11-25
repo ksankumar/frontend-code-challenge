@@ -36,7 +36,6 @@ describe("Pokemons List view", () => {
     requestHandlers = {
       allPokeyMonsQueryHandler: jest.fn().mockResolvedValue(mockPokemonList),
       pokeyMonsTypesQueryHandler: jest.fn().mockResolvedValue(mockPokemonTypes),
-      // allPokeyMonsQueryHandler: jest.fn().mockResolvedValue(mockPokemonList),
       ...handlers
     };
 
@@ -85,53 +84,6 @@ describe("Pokemons List view", () => {
     mockClient = null;
     apolloProvider = null;
   });
-  // it("add a pokemon to favorite on Favorite mutation", async () => {
-  //   createComponent();
-  //   await wrapper.vm.$nextTick();
-  //   await wrapper.vm.$nextTick();
-  //   // Waiting for query promise to resolve and populate data
-  //   try {
-  //     wrapper
-  //       .findAllComponents(PokemonCard)
-  //       .at(0)
-  //       .vm.makeFavorite({ id: "001", isFavorite: true });
-  //     wrapper
-  //       .findAllComponents(PokemonCard)
-  //       .at(0)
-  //       .vm.$emit("makeFavorite", { id: "001", isFavorite: true });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  //
-  //   // expect(requestHandlers.deleteHeroMutationHandler).toHaveBeenCalledWith({
-  //   //   name: "Anonymous Vue Hero"
-  //   // });
-  //   // await wrapper.vm.$nextTick();
-  //   // await wrapper.vm.$nextTick();
-  //   // wrapper
-  //   //   .findAllComponents(PokemonCard)
-  //   //   .at(0)
-  //   //   .vm.$emit("makeFavorit1e", { isFavorite: true });
-  //
-  //   // expect(requestHandlers.addHeroMutationHandler).toHaveBeenCalledWith({
-  //   //   hero: {
-  //   //     ...newHeroMock
-  //   //   }
-  //   // });
-  //
-  //   // We wait for mutation promise to resolve and then we check if new hero is added to cache
-  //   // await wrapper.vm.$nextTick();
-  //   //
-  //   // expect(
-  //   //   mockClient.cache.readQuery({ query: allHeroesQuery }).allHeroes
-  //   // ).toHaveLength(3);
-  //   //
-  //   // // We wait for one more tick for component to re-render updated cache data
-  //   // await wrapper.vm.$nextTick();
-  //   //
-  //   // expect(wrapper.html()).toMatchSnapshot();
-  //   // expect(wrapper.findAllComponents(VueHero)).toHaveLength(3);
-  // });
   it("renders a loading block when query is in progress", async () => {
     createComponent();
     expect(requestHandlers.allPokeyMonsQueryHandler).toHaveBeenCalled();
@@ -146,7 +98,7 @@ describe("Pokemons List view", () => {
 
     expect(wrapper.find(".test-loading").exists()).toBe(false);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAllComponents(PokemonCard)).toHaveLength(10);
+    expect(wrapper.findAllComponents(PokemonCard)).toHaveLength(12);
   });
 
   it("renders a list of pokemon types when query is resolved", async () => {
@@ -157,7 +109,6 @@ describe("Pokemons List view", () => {
     await wrapper.vm.$nextTick();
     await wrapper.vm.$nextTick();
     expect(requestHandlers.pokeyMonsTypesQueryHandler).toHaveBeenCalled();
-    // expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("renders a message about no pokemons when heroes list is empty", async () => {

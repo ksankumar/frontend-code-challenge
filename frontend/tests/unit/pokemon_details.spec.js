@@ -10,7 +10,6 @@ import pokemonDetailsQuery from "@/graphql/pokemonDetails.query.gql";
 import favoritePokemonMutation from "@/graphql/favoritePokemon.mutation.gql";
 import unFavoritePokemonMutation from "@/graphql/unFavoritePokemon.mutation.gql";
 import localTestQuery from "@/graphql/localTest.query.gql";
-// import PokemonCardComponent from "@/components/PokemonCard";
 import PokemonDetails from "@/views/Details";
 
 config.showDeprecationWarnings = false;
@@ -92,14 +91,7 @@ describe("Pokemon component", () => {
       }
     });
     wrapper.vm.$route.params["id"] = "001";
-    // wrapper.vm.pokemonById = mockPokemonDetails.data.pokemonById;
   };
-
-  // afterEach(() => {
-  //   //wrapper.destroy();
-  //   mockClient = null;
-  //   apolloProvider = null;
-  // });
 
   it("renders a pokemon details component", async () => {
     createComponent();

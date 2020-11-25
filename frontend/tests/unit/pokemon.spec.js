@@ -84,11 +84,6 @@ describe("Pokemon component", () => {
     });
   };
 
-  afterEach(() => {
-    //wrapper.destroy();
-    mockClient = null;
-    apolloProvider = null;
-  });
   it("renders a pokemon component", async () => {
     createComponent();
     expect(wrapper.is(PokemonCardComponent)).toBe(true);

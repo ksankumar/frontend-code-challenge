@@ -15,11 +15,11 @@ exports[`Pokemons List view renders a list of 10 pokemons when query is resolved
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
-    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
-      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+    <v-row-stub tag="div" align="center" justify="space-around">
+      <v-col-stub cols="12" sm="6" md="7" tag="div" class="pr-3">
         <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
       </v-col-stub>
-      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+      <v-col-stub cols="8" sm="4" md="4" tag="div">
         <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
   if (a === b) return true;
 
@@ -45,7 +45,7 @@ exports[`Pokemons List view renders a list of 10 pokemons when query is resolved
   });
 }" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
       </v-col-stub>
-      <v-col-stub cols="1" sm="2" md="1" tag="div">
+      <v-col-stub cols="4" sm="2" md="1" tag="div">
         <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
           <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
             <v-icon-stub large="">mdi-view-list</v-icon-stub>
@@ -58,9 +58,16 @@ exports[`Pokemons List view renders a list of 10 pokemons when query is resolved
       </v-col-stub>
     </v-row-stub>
   </div>
+  <v-divider-stub class="elevation-10"></v-divider-stub>
   <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
     <v-slide-x-transition-stub mode="out-in" origin="top center 0" duration="250">
       <v-row-stub tag="div">
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
+        <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
+          <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
+        </v-col-stub>
         <v-col-stub cols="12" sm="4" md="3" tag="div" class="pullUp">
           <pokemoncard-stub pokemon="[object Object]"></pokemoncard-stub>
         </v-col-stub>
@@ -113,14 +120,14 @@ exports[`Pokemons List view renders a loading block when query is in progress 1`
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
-    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
-      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+    <v-row-stub tag="div" align="center" justify="space-around">
+      <v-col-stub cols="12" sm="6" md="7" tag="div" class="pr-3">
         <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
       </v-col-stub>
-      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+      <v-col-stub cols="8" sm="4" md="4" tag="div">
         <v-skeleton-loader-stub type="list-item" types="[object Object]"></v-skeleton-loader-stub>
       </v-col-stub>
-      <v-col-stub cols="1" sm="2" md="1" tag="div">
+      <v-col-stub cols="4" sm="2" md="1" tag="div">
         <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
           <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
             <v-icon-stub large="">mdi-view-list</v-icon-stub>
@@ -133,6 +140,7 @@ exports[`Pokemons List view renders a loading block when query is in progress 1`
       </v-col-stub>
     </v-row-stub>
   </div>
+  <v-divider-stub class="elevation-10"></v-divider-stub>
   <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
     <div class="test-loading">
       <v-skeleton-loader-stub type="image, list-item-avatar-two-line" types="[object Object]"></v-skeleton-loader-stub>
@@ -157,11 +165,11 @@ exports[`Pokemons List view renders a message about no pokemons when heroes list
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
-    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
-      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+    <v-row-stub tag="div" align="center" justify="space-around">
+      <v-col-stub cols="12" sm="6" md="7" tag="div" class="pr-3">
         <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
       </v-col-stub>
-      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+      <v-col-stub cols="8" sm="4" md="4" tag="div">
         <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
   if (a === b) return true;
 
@@ -187,7 +195,7 @@ exports[`Pokemons List view renders a message about no pokemons when heroes list
   });
 }" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
       </v-col-stub>
-      <v-col-stub cols="1" sm="2" md="1" tag="div">
+      <v-col-stub cols="4" sm="2" md="1" tag="div">
         <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
           <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
             <v-icon-stub large="">mdi-view-list</v-icon-stub>
@@ -200,6 +208,7 @@ exports[`Pokemons List view renders a message about no pokemons when heroes list
       </v-col-stub>
     </v-row-stub>
   </div>
+  <v-divider-stub class="elevation-10"></v-divider-stub>
   <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
     <v-fade-transition-stub origin="top center 0">
       <nodata-stub message="We Couldn't find the Pokemon that you're looking for"></nodata-stub>
@@ -224,11 +233,11 @@ exports[`Pokemons List view renders error if query fails 1`] = `
         </v-btn-stub>
       </v-col-stub>
     </v-row-stub>
-    <v-row-stub tag="div" nogutters="true" align="center" justify="space-around" class="mt-5">
-      <v-col-stub cols="6" sm="6" md="7" tag="div" class="pr-3">
+    <v-row-stub tag="div" align="center" justify="space-around">
+      <v-col-stub cols="12" sm="6" md="7" tag="div" class="pr-3">
         <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="Search" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text"></v-text-field-stub>
       </v-col-stub>
-      <v-col-stub cols="5" sm="4" md="4" tag="div" class="test-section">
+      <v-col-stub cols="8" sm="4" md="4" tag="div">
         <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="Type" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
   if (a === b) return true;
 
@@ -254,7 +263,7 @@ exports[`Pokemons List view renders error if query fails 1`] = `
   });
 }" nodatatext="$vuetify.noDataText" items="Grass,Poison,Fire,Flying,Water,Bug,Normal,Electric,Ground,Fairy,Fighting,Psychic,Rock,Steel,Ice,Ghost,Dragon" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]" class="selectable"></v-select-stub>
       </v-col-stub>
-      <v-col-stub cols="1" sm="2" md="1" tag="div">
+      <v-col-stub cols="4" sm="2" md="1" tag="div">
         <v-row-stub tag="div" nogutters="true" align="center" justify="space-around">
           <v-btn-stub color="primary" tag="button" activeclass="" large="true" icon="true" type="button">
             <v-icon-stub large="">mdi-view-list</v-icon-stub>
@@ -267,6 +276,7 @@ exports[`Pokemons List view renders error if query fails 1`] = `
       </v-col-stub>
     </v-row-stub>
   </div>
+  <v-divider-stub class="elevation-10"></v-divider-stub>
   <v-card-stub loaderheight="4" tag="div" flat="true" class="content-scroll">
     <!---->
     <v-fade-transition-stub origin="top center 0">

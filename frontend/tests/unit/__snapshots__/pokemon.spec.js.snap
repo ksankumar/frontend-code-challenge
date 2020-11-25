@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pokemon component displayed pokemon correctly with query data 1`] = `
-<v-card-stub loaderheight="4" tag="div" outlined="true">
+<v-card-stub loaderheight="4" tag="div" outlined="true" class="pokemon-card">
   <v-img-stub height="300" contain="true" options="[object Object]" position="center center" src="https://img.pokemondb.net/artwork/bulbasaur.jpg" transition="fade-transition" class="text-right pa-2"></v-img-stub>
   <v-card-actions-stub class="grey lighten-3">
     <div>

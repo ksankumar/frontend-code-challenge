@@ -21,7 +21,7 @@
             "Poison"
           ],
           "image": "https://img.pokemondb.net/artwork/ivysaur.jpg",
-          "isFavorite": false,
+          "isFavorite": true,
           "__typename": "Pokemon"
         },
         {
@@ -105,8 +105,30 @@
           "image": "https://img.pokemondb.net/artwork/caterpie.jpg",
           "isFavorite": false,
           "__typename": "Pokemon"
+        },
+        {
+          "id": "011",
+          "name": "Metapod",
+          "types": [
+            "Bug"
+          ],
+          "image": "https://img.pokemondb.net/artwork/metapod.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
+        },
+        {
+          "id": "012",
+          "name": "Butterfree",
+          "types": [
+            "Bug",
+            "Flying"
+          ],
+          "image": "https://img.pokemondb.net/artwork/butterfree.jpg",
+          "isFavorite": false,
+          "__typename": "Pokemon"
         }
-      ]
+      ],
+      "__typename": "PokemonConnection"
     }
   }
 }

@@ -222,6 +222,7 @@ export default {
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           const newList = fetchMoreResult.pokemons.edges;
+          console.log(JSON.stringify(previousResult));
           return {
             pokemons: {
               __typename: previousResult.pokemons.__typename,
