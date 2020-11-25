@@ -147,7 +147,7 @@
           <NoData
             :message="
               isFavorite
-                ? 'No favourite pokemon found to show'
+                ? 'You didn\'t select any favorite pokemon yet.'
                 : 'We Couldn\'t find the Pokemon that you\'re looking for'
             "
           />
@@ -249,9 +249,9 @@ export default {
 <style scoped>
 .content-scroll {
   position: absolute;
-  height: -moz-calc(100% - 150px);
-  height: -webkit-calc(100% - 150px);
-  height: calc(100% - 150px);
+  height: -moz-calc(100% - 120px);
+  height: -webkit-calc(100% - 120px);
+  height: calc(100% - 120px);
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-behavior: smooth !important;
@@ -260,7 +260,6 @@ export default {
   left: 0;
   right: 0;
 }
-
 .pullUp {
   animation-name: pullUp;
   -webkit-animation-name: pullUp;
