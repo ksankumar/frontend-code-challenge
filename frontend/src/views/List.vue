@@ -96,6 +96,7 @@
               v-for="item in pokemons.edges"
               :key="item.id"
               class="mb-3 v-sheet--outlined"
+              @click.stop="goPokemonDetails(item.id)"
             >
               <v-list-item-avatar>
                 <v-img
@@ -123,11 +124,7 @@
                 <v-list-item-subtitle v-html="item.types.join(', ')" />
               </v-list-item-content>
               <v-list-item-action>
-                <v-btn icon @click.stop="makeFavorite(item)">
-                  <v-icon color="red" size="30"
-                    >{{ item.isFavorite ? "mdi-heart" : "mdi-heart-outline" }}
-                  </v-icon>
-                </v-btn>
+                  <favorite-button :pokemon="item" />
               </v-list-item-action>
             </v-list-item>
           </v-list>
@@ -172,11 +169,13 @@ import POKEMONS_TYPES_QUERY from "@/graphql/pokemonTypes.query.gql";
 import localTestQuery from "@/graphql/localTest.query.gql";
 import PokemonCard from "@/components/PokemonCard";
 import NoData from "@/components/NoData";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default {
   name: "pokemons-list",
   components: {
     PokemonCard,
+    FavoriteButton,
     NoData
   },
   data: () => ({
@@ -241,6 +240,14 @@ export default {
         search: this.pokemonName,
         isFavorite: this.isFavorite,
         type: this.pokemonType
+      });
+    },
+    goPokemonDetails(pokemonId) {
+      this.$router.push({
+        name: "PokemonDetails",
+        params: {
+          id: pokemonId
+        }
       });
     }
   }
