@@ -63,6 +63,7 @@
             class="selectable"
             :items="pokemonTypes"
             v-model="pokemonType"
+            @change="reFetchPokemons"
             clearable
             hide-details
             outlined
