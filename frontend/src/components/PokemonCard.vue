@@ -17,35 +17,25 @@
         <div v-if="pokemon.types">{{ pokemon.types.join(", ") }}</div>
       </div>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="makeFavorite(pokemon)" class="test-favorite">
-        <v-icon color="red" size="30"
-          >{{ pokemon.isFavorite ? "mdi-heart" : "mdi-heart-outline" }}
-        </v-icon>
-      </v-btn>
+      <favorite-button :pokemon="pokemon" />
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import UnFavoritePokemon from "@/graphql/unFavoritePokemon.mutation.gql";
-import FavoritePokemon from "@/graphql/favoritePokemon.mutation.gql";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default {
   name: "pokemon-card",
+  components: {
+    FavoriteButton
+  },
   props: {
     pokemon: {
       type: Object
     }
   },
   methods: {
-    makeFavorite(item) {
-      this.$apollo.mutate({
-        mutation: item.isFavorite ? UnFavoritePokemon : FavoritePokemon,
-        variables: {
-          id: item.id
-        }
-      });
-    },
     goPokemonDetails(pokemonId) {
       this.$router.push({
         name: "PokemonDetails",

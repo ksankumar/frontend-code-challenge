@@ -5,8 +5,6 @@ import Vuetify from "vuetify";
 import VueRouter from "vue-router";
 import VueApollo from "vue-apollo";
 import mockPokemonList from "../data/list.json";
-import favoritePokemonMutation from "@/graphql/favoritePokemon.mutation.gql";
-import unFavoritePokemonMutation from "@/graphql/unFavoritePokemon.mutation.gql";
 import localTestQuery from "@/graphql/localTest.query.gql";
 import PokemonCardComponent from "@/components/PokemonCard";
 import PokemonDetails from "@/views/Details";
@@ -27,19 +25,8 @@ describe("Pokemon component", () => {
   let wrapper;
   let mockClient;
   let apolloProvider;
-  let requestHandlers;
   const createComponent = (handlers, data) => {
     // We want to specify default handlers for different operations and overwrite them with passed handlers
-    requestHandlers = {
-      favoritePokemonMutationHandler: jest
-        .fn()
-        .mockResolvedValue(mockPokemonList),
-      unFavoritePokemonMutationHandler: jest
-        .fn()
-        .mockResolvedValue(mockPokemonList),
-      ...handlers
-    };
-
     mockClient = createMockClient({
       resolvers: {}
     });
@@ -56,15 +43,6 @@ describe("Pokemon component", () => {
 
     // Unfortunately, it's not possible to override handler already set
     // So we need to do all the work for setting handlers in the factory
-    mockClient.setRequestHandler(
-      favoritePokemonMutation,
-      requestHandlers.favoritePokemonMutationHandler
-    );
-    mockClient.setRequestHandler(
-      unFavoritePokemonMutation,
-      requestHandlers.unFavoritePokemonMutationHandler
-    );
-
     apolloProvider = new VueApollo({
       defaultClient: mockClient
     });
@@ -107,50 +85,6 @@ describe("Pokemon component", () => {
     expect(wrapper.props().pokemon.name).toBe("Bulbasaur");
     expect(wrapper.props().pokemon.types.join(", ")).toBe("Grass, Poison");
     expect(wrapper.props().pokemon.isFavorite).toBe(false);
-  });
-
-  it("make a favorite pokemon", async () => {
-    wrapper.vm.makeFavorite(wrapper.props().pokemon);
-    expect(requestHandlers.favoritePokemonMutationHandler).toHaveBeenCalledWith(
-      {
-        id: "001"
-      }
-    );
-  });
-  it("check favorite icon has been changed", async () => {
-    mockPokemonList.data.pokemons.edges[0].isFavorite = true;
-    createComponent(
-      {},
-      {
-        propsData: {
-          pokemon: mockPokemonList.data.pokemons.edges[0]
-        }
-      }
-    );
-    await wrapper.vm.$nextTick();
-    expect(wrapper.html()).toContain("mdi-heart");
-  });
-  it("make a un-favorite pokemon", async () => {
-    // wrapper.setData({ pokemon: mockPokemonList.data.pokemons.edges[0] });
-    wrapper.vm.makeFavorite(wrapper.props().pokemon);
-    expect(
-      requestHandlers.unFavoritePokemonMutationHandler
-    ).toHaveBeenCalledWith({
-      id: "001"
-    });
-  });
-  it("check un-favorite icon has been changed", async () => {
-    mockPokemonList.data.pokemons.edges[0].isFavorite = false;
-    createComponent(
-      {},
-      {
-        propsData: {
-          pokemon: mockPokemonList.data.pokemons.edges[0]
-        }
-      }
-    );
-    await wrapper.vm.$nextTick();
-    expect(wrapper.html()).toContain("mdi-heart-outline");
   });
 
   it("should navigate to Pokemon's details on click pokemon", async () => {

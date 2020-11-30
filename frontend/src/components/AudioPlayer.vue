@@ -8,7 +8,7 @@
       icon
       left
       small
-      @click.stop="$refs.audioPlayer.play()"
+      @click.stop="playRoar"
     >
       <v-icon color="primary" size="36">mdi-volume-high</v-icon>
       <audio
@@ -27,6 +27,14 @@ export default {
   props: {
     audioSrc: {
       type: String
+    }
+  },
+  methods: {
+    playRoar() {
+      const player = this.$refs.audioPlayer;
+      player.pause();
+      player.currentTime = 0;
+      player.play();
     }
   }
 };

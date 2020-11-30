@@ -44,13 +44,7 @@
                 </v-list-item-subtitle>
               </v-list-item-content>
               <v-list-item-action>
-                <v-btn icon @click.stop="makeFavorite(pokemonById)">
-                  <v-icon color="red" size="30"
-                    >{{
-                      pokemonById.isFavorite ? "mdi-heart" : "mdi-heart-outline"
-                    }}
-                  </v-icon>
-                </v-btn>
+                <favorite-button :pokemon="pokemonById" />
               </v-list-item-action>
             </v-list-item>
             <v-card-text class="pt-0">
@@ -160,16 +154,16 @@
 
 <script>
 import POKEMON_DETAILS_QUERY from "@/graphql/pokemonDetails.query.gql";
-import FavoritePokemon from "@/graphql/favoritePokemon.mutation.gql";
-import UnFavoritePokemon from "@/graphql/unFavoritePokemon.mutation.gql";
 import AudioPlayer from "@/components/AudioPlayer";
 import NoData from "@/components/NoData";
 import PokemonCard from "@/components/PokemonCard";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default {
   name: "pokeman-details",
   components: {
     AudioPlayer,
+    FavoriteButton,
     PokemonCard,
     NoData
   },
@@ -181,16 +175,6 @@ export default {
           id: this.$route.params.id
         };
       }
-    }
-  },
-  methods: {
-    makeFavorite(item) {
-      this.$apollo.mutate({
-        mutation: item.isFavorite ? UnFavoritePokemon : FavoritePokemon,
-        variables: {
-          id: item.id
-        }
-      });
     }
   }
 };

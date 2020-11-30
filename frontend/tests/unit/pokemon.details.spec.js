@@ -7,8 +7,6 @@ import VueApollo from "vue-apollo";
 import mockPokemonDetails from "../data/details.json";
 import mockPokemonList from "../data/list.json";
 import pokemonDetailsQuery from "@/graphql/pokemonDetails.query.gql";
-import favoritePokemonMutation from "@/graphql/favoritePokemon.mutation.gql";
-import unFavoritePokemonMutation from "@/graphql/unFavoritePokemon.mutation.gql";
 import localTestQuery from "@/graphql/localTest.query.gql";
 import PokemonDetails from "@/views/Details";
 
@@ -27,7 +25,7 @@ Vue.use(Vuetify);
 Vue.use(VueRouter);
 Vue.use(VueApollo);
 
-describe("Pokemon component", () => {
+describe("Pokemon Details view", () => {
   let wrapper;
   let mockClient;
   let apolloProvider;
@@ -38,12 +36,6 @@ describe("Pokemon component", () => {
       pokemonDetailsQueryHandler: jest
         .fn()
         .mockResolvedValue(mockPokemonDetails),
-      favoritePokemonMutationHandler: jest
-        .fn()
-        .mockResolvedValue(mockPokemonList),
-      unFavoritePokemonMutationHandler: jest
-        .fn()
-        .mockResolvedValue(mockPokemonList),
       ...handlers
     };
 
@@ -66,14 +58,6 @@ describe("Pokemon component", () => {
     mockClient.setRequestHandler(
       pokemonDetailsQuery,
       requestHandlers.pokemonDetailsQueryHandler
-    );
-    mockClient.setRequestHandler(
-      favoritePokemonMutation,
-      requestHandlers.favoritePokemonMutationHandler
-    );
-    mockClient.setRequestHandler(
-      unFavoritePokemonMutation,
-      requestHandlers.unFavoritePokemonMutationHandler
     );
 
     apolloProvider = new VueApollo({
@@ -109,24 +93,5 @@ describe("Pokemon component", () => {
 
   it("displayed pokemon correctly with query data", () => {
     expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  it("make a un-favorite pokemon", async () => {
-    wrapper.vm.makeFavorite(mockPokemonDetails.data.pokemonById);
-    expect(
-      requestHandlers.unFavoritePokemonMutationHandler
-    ).toHaveBeenCalledWith({
-      id: "001"
-    });
-    expect(wrapper.html()).toContain("mdi-heart");
-  });
-
-  it("make a favorite pokemon", async () => {
-    wrapper.vm.makeFavorite({ id: "001", isFavorite: false });
-    expect(requestHandlers.favoritePokemonMutationHandler).toHaveBeenCalledWith(
-      {
-        id: "001"
-      }
-    );
   });
 });
